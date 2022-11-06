@@ -1,0 +1,2 @@
+# jex01_mariadb
+springframework_mariadb
