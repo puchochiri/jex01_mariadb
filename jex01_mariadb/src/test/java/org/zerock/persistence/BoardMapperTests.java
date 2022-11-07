@@ -26,7 +26,6 @@ public class BoardMapperTests {
 	}
 
 	
-	
 	@Test
 	public void testInsert() {
 		BoardVO board = new BoardVO();

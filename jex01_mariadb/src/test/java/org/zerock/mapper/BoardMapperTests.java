@@ -64,7 +64,7 @@ public class BoardMapperTests {
 	
 	@Test
 	public void testUpdate() {
-		log.info("testUpdate");
+		log.info("testUpdate시작");
 
 		BoardVO board = new BoardVO();
 		// 실행전 존재하는 번호인지 확인 할 것
@@ -77,28 +77,18 @@ public class BoardMapperTests {
 		log.info("UPDATE COUNT: " + count);
 	}
 	
-	@Test
-	public void testPaging() {
-		
-		log.info("testPaging");
-		Criteria cri = new Criteria();
-		//10개씩 3page
-		cri.setPageNum(3);
-		cri.setAmount(10);
-		
-		List<BoardVO> list = mapper.getListWithPaging(cri);
-		
-		list.forEach(board -> log.info(board));
-	}
-	
 
 	@Test
 	public void testSearch() {
-		
+
+		log.info("testSearch시작");
 		Criteria cri = new Criteria();
 		cri.setKeyword("새로");
 		cri.setType("TC");
 		
+		
+		log.info("testSearch cri : " + cri);
+
 		List<BoardVO> list = mapper.getListWithPaging(cri);
 		
 		list.forEach(board -> log.info(board));

@@ -25,8 +25,16 @@
         <Root level="INFO" additivity="false" >
             <AppenderRef ref="console" />
         </Root>
-        	<logger name="org.zerock.mapper.TimeMapper" level="debug" />
-        	<logger name="org.zerock.mapper.BoardMapper" level="debug" />
+        	<logger name="org.zerock.mapper.TimeMapper" level="trace" >
+        	    <Root level="error" >
+ 				     <AppenderRef ref="stdout"/>
+    			</Root>
+        	</logger>
+        	<logger name="org.zerock.mapper.BoardMapper" level="trace" >
+        	     <Root level="error" >
+ 				     <AppenderRef ref="stdout"/>
+    			</Root>
+        	</logger>
         <!-- log4j2 -->
         <logger name="log4jdbc.log4j2" level="error" additivity="false">
             <appender-ref ref="console" />
@@ -46,13 +54,13 @@
         <logger name="jdbc.sqltiming" level="off"/>
         
          <!-- 전체 로그 ( 양 상당히 많아짐 ) -->
-        <logger name="jdbc.audit" level="off"/>
+        <logger name="jdbc.audit" level="warn"/>
         
          <!-- resultsettable + resultset (parameter) -->
-        <logger name="jdbc.resultset" level="off"/>
+        <logger name="jdbc.resultset" level="warn"/>
         
         <!-- connection log -->
-        <logger name="jdbc.connection" level="off"/>
+        <logger name="jdbc.connection" level="warn"/>
 		
        
         <logger name = "com.error" level="INFO" additivity="false" >
@@ -62,6 +70,5 @@
         <logger name = "com.console" level="INFO" additivity="false">
             <AppenderRef ref="rolling_console"/>
         </logger>
-
     </loggers>
 </Configuration>
