@@ -7,18 +7,16 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.zerock.domain.BoardVO;
 import org.zerock.domain.Criteria;
 
 import lombok.Setter;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.log4j.Log4j2;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 // Java Config
 @ContextConfiguration(classes = {org.zerock.config.RootConfig.class})
-@Log4j
+@Log4j2
 public class BoardServiceTests {
 	
 	@Setter(onMethod_ = {@Autowired})

@@ -13,7 +13,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import lombok.Setter;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.log4j.Log4j2;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 //Test for Controller
@@ -26,7 +26,7 @@ import lombok.extern.log4j.Log4j;
 @ContextConfiguration(classes = {
 		org.zerock.config.RootConfig.class,
 		org.zerock.config.ServletConfig.class} )	
-@Log4j
+@Log4j2
 public class BoardControllerTests {
 	
 	@Setter(onMethod_ = {@Autowired})

@@ -9,12 +9,12 @@ import org.zerock.domain.BoardVO;
 import org.zerock.mapper.BoardMapper;
 
 import lombok.Setter;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.log4j.Log4j2;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 //Java Config
 @ContextConfiguration(classes = {org.zerock.config.RootConfig.class})
-@Log4j
+@Log4j2
 public class BoardMapperTests {
 	
 	@Setter(onMethod_ = @Autowired)

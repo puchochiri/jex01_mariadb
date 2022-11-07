@@ -8,12 +8,12 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.zerock.mapper.TimeMapper;
 
 import lombok.Setter;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.log4j.Log4j2;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 //Java 설정의 경우
 @ContextConfiguration(classes = { org.zerock.config.RootConfig.class })
-@Log4j
+@Log4j2
 public class TimeMapperTests {
 	
 	@Setter(onMethod_ = @Autowired)
@@ -21,6 +21,7 @@ public class TimeMapperTests {
 	
 	@Test
 	public void testGetTime() {
+		log.info("getTime1");
 		log.info(timeMapper.getClass().getName());
 		log.info(timeMapper.getTime());
 	}

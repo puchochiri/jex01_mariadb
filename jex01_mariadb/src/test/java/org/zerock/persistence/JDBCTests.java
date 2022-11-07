@@ -7,9 +7,9 @@ import java.sql.DriverManager;
 
 import org.junit.Test;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.log4j.Log4j2;
 
-@Log4j
+@Log4j2
 public class JDBCTests {
 	static {
 		try {
@@ -24,9 +24,11 @@ public class JDBCTests {
 		
 		try(Connection con = 
 				DriverManager.getConnection(
-						"jdbc:mariadb://localhost:3306/01boardprj",
+						"jdbc:mariadb://localhost:3306/book_ex",
 						"root",
-						"1234")){
+						// "1234"
+						"pucho8934!"
+						)){
 			
 			log.info(con);
 		} catch (Exception e) {

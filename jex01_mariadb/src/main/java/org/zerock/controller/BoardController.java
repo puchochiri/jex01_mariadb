@@ -14,10 +14,10 @@ import org.zerock.domain.PageDTO;
 import org.zerock.service.BoardService;
 
 import lombok.AllArgsConstructor;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.log4j.Log4j2;
 
 @Controller
-@Log4j
+@Log4j2
 @RequestMapping("/board/*")
 @AllArgsConstructor
 public class BoardController {
