@@ -25,8 +25,8 @@ public class RootConfig {
 		hikariConfig.setJdbcUrl("jdbc:log4jdbc:mariadb://localhost:3306/book_ex");
 		
 		hikariConfig.setUsername("root");
-		hikariConfig.setPassword("pucho8934!");
-//		hikariConfig.setPassword("1234");
+//		hikariConfig.setPassword("pucho8934!");
+		hikariConfig.setPassword("1234");
 //		hikariConfig.setUsername("book_ex");
 //		hikariConfig.setPassword("book_ex");
 		
