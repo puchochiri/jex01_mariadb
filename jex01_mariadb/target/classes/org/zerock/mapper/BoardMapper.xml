@@ -5,30 +5,37 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="org.zerock.mapper.BoardMapper">
 
 	<select id="getList" resultType="org.zerock.domain.BoardVO">
+	<!-- getList 실행 -->
 	<![CDATA[
 	select * from tbl_board where bno > 0
 	]]>
 	</select>
 
 	<insert id="insert">
+	<!-- insert 실행 -->
+	
 		insert into tbl_board (title,content,writer)
 		values ( #{title}, #{content}, #{writer})
 	</insert>
 	
 	<insert id="insertSelectKey">
+	<!-- insertSelectKey 실행 -->
 		insert into tbl_board (title,content,writer)
 		values (#{title},#{content},#{writer})
 	</insert>
 	
-		<select id="read" resultType="org.zerock.domain.BoardVO">
-		select * from tbl_board where bno = #{bno}
-		</select>
+	<select id="read" resultType="org.zerock.domain.BoardVO">
+	<!-- read 실행 -->
+	select * from tbl_board where bno = #{bno}
+	</select>
 		
 		<delete id="delete">
+			<!-- delete 실행 -->
 			delete from tbl_board where bno = #{bno}
 		</delete>
 		
 		<update id="update">
+			<!-- update 실행 -->
 			update tbl_board
 			set title = #{title},
 			content = #{content},
@@ -38,48 +45,44 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</update>
 		
 	<select id="getListWithPaging"  resultType="org.zerock.domain.BoardVO" parameterType="org.zerock.domain.Criteria">
+	<!-- getListWithPaging 실행 -->
 		<![CDATA[
-		select
-		   rownum rn, bno, title, content, writer, regdate, updatedate
-		    from
-		        tbl_board
-		    where 1=1
+			select row_number() over(order by bno desc ) as rn, bno, title, content, writer, regdate, updatedate 
+			from tbl_board 
+		    where
 		]]>
 		<include refid="criteria"></include>
-		
 		<![CDATA[
-		order by bno desc
-		LIMIT  #{pageNum}, #{amount}
+			order by bno desc
+			LIMIT  #{pageNum}, #{amount}
 		]]> 
 	</select>	
 	
 	<select id="getTotalCount" resultType="int">
+	<!-- getTotalCount 실행 -->
 		select count(*) from tbl_board 
 		where 
 		<include refid="criteria"></include>
 		bno > 0
 	</select>
-	
-		
 		
 		<sql id="criteria">
-			<trim prefix="(" suffix=") AND " prefixOverrides="OR">
+			<trim prefix="(" suffix=")" prefixOverrides="OR">
 				<foreach item='type' collection="typeArr">
 					<trim prefix="OR">
 						<choose>
 							<when test="type == 'T'.toString">
-								title like '%'||#{keyword}||'%'
+								title like CONCAT('%',#{keyword},'%')
 							</when>
 							<when test="type == 'C'.toString">
-								content like '%'||#{keyword}||'%'
+								content like CONCAT('%',#{keyword},'%')
 							</when>
 							<when test="type == 'W'.toString">
-								writer like '%'||#{keyword}||'%'
+								writer like CONCAT('%',#{keyword},'%')
 							</when>
 						</choose>
 					</trim>
 				</foreach>
-			
 			</trim>
 		</sql>
 	
