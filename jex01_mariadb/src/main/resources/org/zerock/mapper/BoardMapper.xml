@@ -55,7 +55,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		/* getListWithPaging */
 			select row_number() over(order by bno desc ) as rn, bno, title, content, writer, regdate, updatedate 
 			from tbl_board 
-		    where
 		]]>
 		<include refid="criteria"></include>
 		<![CDATA[
