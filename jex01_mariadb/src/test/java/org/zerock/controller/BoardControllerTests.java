@@ -15,6 +15,8 @@ import org.springframework.web.context.WebApplicationContext;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j2;
 
+
+// 현재 테스트 코드가 스프링을 실행하는 역할을 할 것 표시
 @RunWith(SpringJUnit4ClassRunner.class)
 //Test for Controller
 @WebAppConfiguration

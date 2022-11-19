@@ -13,13 +13,18 @@ import org.zerock.domain.Criteria;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j2;
 
+
+//현재 테스트 코드가 스프링을 실행하는 역할을 할 것 표시
 @RunWith(SpringJUnit4ClassRunner.class)
 //@ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
 //Java Config
+//지정된 클래스나 문자열을 이용해서 필요한 객체들을 스프링 내에 객체로 등록함
 @ContextConfiguration(classes = {org.zerock.config.RootConfig.class})
+// 로그 기록
 @Log4j2
 public class BoardMapperTests {
 	
+	// 해당 인스턴스 변수가 스프링으로 부터 자동으로 주입해 달라는 표시
 	@Setter(onMethod_ = @Autowired)
 	private BoardMapper mapper;
 	
@@ -28,6 +33,7 @@ public class BoardMapperTests {
 	//	mapper.getList().forEach(board -> log.info(board));
 	//}
 	
+	// JUnit에서 테스트 대상을 표시 하는 어노테이션 입니다.
 	@Test
 	public void testInsert() {
 		BoardVO board = new BoardVO();
