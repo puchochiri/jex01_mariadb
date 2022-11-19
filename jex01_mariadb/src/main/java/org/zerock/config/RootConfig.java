@@ -26,9 +26,9 @@ public class RootConfig {
 		
 		hikariConfig.setUsername("root");
 		// 회사
-		hikariConfig.setPassword("pucho8934!");
+//		hikariConfig.setPassword("pucho8934!");
 		// 집
-//		hikariConfig.setPassword("1234");
+		hikariConfig.setPassword("1234");
 //		hikariConfig.setUsername("book_ex");
 //		hikariConfig.setPassword("book_ex");
 		

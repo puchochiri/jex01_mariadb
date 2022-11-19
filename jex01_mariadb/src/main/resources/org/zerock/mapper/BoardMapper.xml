@@ -6,6 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="getList" resultType="org.zerock.domain.BoardVO">
 	<!-- getList 실행 -->
+	/* getList */
 	<![CDATA[
 	select * from tbl_board where bno > 0
 	]]>
@@ -13,12 +14,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<insert id="insert">
 	<!-- insert 실행 -->
-	
+	/* insert */
 		insert into tbl_board (title,content,writer)
 		values ( #{title}, #{content}, #{writer})
 	</insert>
 	
 	<insert id="insertSelectKey">
+	/* insertSelectKey */
 	<!-- insertSelectKey 실행 -->
 		insert into tbl_board (title,content,writer)
 		values (#{title},#{content},#{writer})
@@ -26,15 +28,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="read" resultType="org.zerock.domain.BoardVO">
 	<!-- read 실행 -->
+	/* read */
 	select * from tbl_board where bno = #{bno}
 	</select>
 		
 		<delete id="delete">
+			/* delete */
 			<!-- delete 실행 -->
 			delete from tbl_board where bno = #{bno}
 		</delete>
 		
 		<update id="update">
+		/* update */
 			<!-- update 실행 -->
 			update tbl_board
 			set title = #{title},
@@ -47,17 +52,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getListWithPaging"  resultType="org.zerock.domain.BoardVO" parameterType="org.zerock.domain.Criteria">
 	<!-- getListWithPaging 실행 -->
 		<![CDATA[
+		/* getListWithPaging */
 			select row_number() over(order by bno desc ) as rn, bno, title, content, writer, regdate, updatedate 
 			from tbl_board 
+		    where
 		]]>
 		<include refid="criteria"></include>
 		<![CDATA[
+			order by bno desc
 			LIMIT  #{pageNum}, #{amount}
 		]]> 
 	</select>	
 	
 	<select id="getTotalCount" resultType="int">
 	<!-- getTotalCount 실행 -->
+			/* getTotalCount */
 		select count(*) from tbl_board 
 		where 
 		<include refid="criteria"></include>
