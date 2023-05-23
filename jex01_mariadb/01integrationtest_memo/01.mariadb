@@ -2,6 +2,8 @@
 
 05.mysql 
 ----- 필요 테이블 ---------------
+window s mysql client 관리자 로 열기
+
 create database book_ex;
 
 create user 'book_ex'@'%' identified by 'book_ex';
